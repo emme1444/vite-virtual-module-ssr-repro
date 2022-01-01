@@ -6,7 +6,7 @@ import react from "@vitejs/plugin-react";
 
 const serverEntryModule = `
 import ReactDOMServer from "react-dom/server";
-// import SomethingApp from "@something/app.jsx"; // <-- this is the import causing problems (i think)
+import SomethingApp from "@something/app.jsx"; // <-- this is the import causing problems (i think)
 
 /**
  * The below is here as a stub to (maybe) show that the problem is the ssr stuff.
@@ -15,12 +15,12 @@ import ReactDOMServer from "react-dom/server";
  * Now things work fine as the "ssrLoadModule" function is able to evaluate
  * and import the below (file) module, but not the virtual module above.
  */
-import CustomApp from "/src/routes/_app.jsx";
+// import CustomApp from "/src/routes/_app.jsx";
 
-const SomethingApp = () => {
-  const App = CustomApp;
-  return <App />;
-};
+// const SomethingApp = () => {
+//   const App = CustomApp;
+//   return <App />;
+// };
 
 export const render = (url, context) => {
   return ReactDOMServer.renderToString(<SomethingApp />);
