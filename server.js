@@ -145,7 +145,7 @@ const createServer = async () => {
     }
   });
 
-  app.listen(3030);
+  app.listen(3000);
 };
 
 createServer();
